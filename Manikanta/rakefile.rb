@@ -19,7 +19,7 @@ desc 'Calls powershell task from current task'
 task :main => [:hello] do
    puts "THIS IS FROM DEFAULT TASK"
    puts ""
-   Rake::Task['execution:powershell'].invoke
+   Rake::Task['powershell'].invoke
 end
 
 #namespace :greetings do
@@ -37,7 +37,7 @@ desc 'Greets with hello message'
   end
 #end
 
-namespace :execution do
+#namespace :execution do
   desc 'Calls the batch script'
   task :batch do
     sh './batch_script', verbose: false
@@ -61,5 +61,5 @@ namespace :execution do
   task :powershell do
     sh 'powershell.exe Manikanta/ps_script3.ps1', verbose: false
   end 
-end
+#end
 
