@@ -54,12 +54,12 @@ namespace :execution do
 
   desc "Calls the ps application built earlier"
   task :application_ps do
-    sh "powershell.exe ./ps_script2.ps1", verbose: false
+    sh "powershell.exe -Command './ps_script2.ps1'", verbose: false
   end 
 
   desc "Calls the normal powershell script"
   task :powershell do
-    sh "powershell.exe ./ps_script3.ps1", verbose: false
+    sh "powershell.exe -Command './ps_script3.ps1'", verbose: false
   end 
 end
 
