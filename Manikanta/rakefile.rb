@@ -3,7 +3,7 @@ task :default => [:main,:thanks]
 
 desc 'Calls powershell task from current task'
 task :main do
-  Rake::Task['powershell'].invoke
+  Rake::Task['cpp'].invoke
 end
 
 desc 'Greets with thank you message'
@@ -17,4 +17,7 @@ task :powershell do
   #verbose: false is to not display the command itself in the console
 end 
 
-
+task :cpp,[:vnum] do |task,args|
+  sh 'g++ Manikanta/greetingss.cpp -o greet'
+  sh 'powershell.exe Compress-Archive greet.exe build_version_#{args.vnum}.zip'
+end
