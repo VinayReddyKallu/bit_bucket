@@ -16,7 +16,7 @@
 task :default => [:hello,:main,:thanks]
 
 desc 'Calls powershell task from current task'
-task :main do
+task :main => [:hello] do
    puts "THIS IS FROM DEFAULT TASK"
    puts ""
    Rake::Task['execution:powershell'].invoke
@@ -30,7 +30,7 @@ desc 'Greets with hello message'
   end
 
   desc 'Greets with thank you message'
-  task :thanks => [:hello] do
+  task :thanks => [:hello,:main] do
     puts ""
     puts "THANK YOU FOR USING RAKE!!"
     puts ""
