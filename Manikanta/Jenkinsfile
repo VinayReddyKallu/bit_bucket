@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages {
+        =begin
         stage('Git-Clone') {
             git(
                 url: 'https://almgit.ncr.com/scm/appops/hydcloudengineering.git',
@@ -8,6 +9,7 @@ pipeline {
                 branch: "%branch%"
             )
         }
+        =end
         stage('Build Stage') {
             steps {
                 echo "Calling rake task"
