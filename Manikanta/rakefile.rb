@@ -1,5 +1,5 @@
 ## To add dependencies to default task                 
-task :default => [:main,:thanks]
+#task :default => [:main,:thanks]
 
 desc 'Calls powershell task from current task'
 task :main do
@@ -20,4 +20,5 @@ end
 task :cpp,[:vnum] do |task,args|
   sh 'g++ Manikanta/greetings.cpp -o greet'
   sh 'powershell.exe Compress-Archive greet.exe build_version_#{args.vnum}.zip'
+  Rake::Task['thanks'].invoke
 end
