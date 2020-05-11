@@ -9,7 +9,7 @@ desc 'Greets with hello message'
   end
 
 desc 'Greets with thank you message'
-  task :thanks => [:hello,:main] do
+  task :thanks => [:hello,:powershell] do
     puts ""
     puts "THANK YOU FOR USING RAKE!!"
     puts ""
