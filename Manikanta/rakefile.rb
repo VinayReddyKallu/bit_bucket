@@ -10,13 +10,12 @@ desc 'Greets with hello message'
 
 desc 'Greets with thank you message'
   task :thanks => [:hello,:powershell] do
-    puts ""
     puts "THANK YOU FOR USING RAKE!!"
     puts ""
   end
 
 desc "Calls the normal powershell script"
-  task :powershell do
+  task :powershell => [:hello] do
     sh 'powershell.exe Manikanta/ps_script3.ps1', verbose: false
   end 
 
