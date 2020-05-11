@@ -1,1 +1,0 @@
-echo "Hello all.. I'm an empty script. Feel free to make use of me :)"

@@ -13,7 +13,7 @@ end
 
 desc "Calls the normal powershell script"
 task :powershell do
-  sh 'powershell.exe Manikanta/ps_script3.ps1', verbose: false
+  sh 'powershell.exe Manikanta/ps_script.ps1', verbose: false
   #verbose: false is to not display the command itself in the console
 end 
 
