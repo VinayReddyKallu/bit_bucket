@@ -59,7 +59,7 @@ namespace :execution do
 
   desc "Calls the normal powershell script"
   task :powershell do
-    sh 'powershell.exe ./ps_script3.ps1'
+    sh "powershell.exe './ps_script3.ps1'"
   end 
 end
 
