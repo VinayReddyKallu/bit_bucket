@@ -15,12 +15,7 @@
 ## To add dependencies to default task                 
 task :default => [:hello,:main,:thanks]
 
-desc 'Calls powershell task from current task'
-task :main => [:hello] do
-   puts "THIS IS FROM DEFAULT TASK"
-   puts ""
-   Rake::Task['powershell'].invoke
-end
+
 
 #namespace :greetings do
 desc 'Greets with hello message'
@@ -28,6 +23,13 @@ desc 'Greets with hello message'
     puts "HELLO USERS!"
     puts ""
   end
+
+desc 'Calls powershell task from current task'
+task :main => [:hello] do
+   puts "THIS IS FROM DEFAULT TASK"
+   puts ""
+   Rake::Task['powershell'].invoke
+end
 
   desc 'Greets with thank you message'
   task :thanks => [:hello,:main] do
