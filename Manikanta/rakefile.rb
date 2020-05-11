@@ -1,9 +1,9 @@
 ## To call the names of all tasks as a list or array without any environment
-task default: %w(
-                  hello
-                  main
-                  thanks
-                 )
+#task default: %w(
+#                  hello
+#                  main
+#                  thanks
+#                 )
 
 ## To call the names of all tasks as a list or array with greetings environment
 #task default: %w(
@@ -13,7 +13,7 @@ task default: %w(
 #                 )
                  
 ## To add dependencies to default task                 
-#task :default => [:hello,:main,:thanks]
+task :default => [:hello,:main,:thanks]
 
 desc 'Calls powershell task from current task'
 task :main do
@@ -59,7 +59,7 @@ namespace :execution do
 
   desc "Calls the normal powershell script"
   task :powershell do
-    sh 'powershell.exe Manikanta/ps_script3.ps1'
+    sh 'powershell.exe Manikanta/ps_script3.ps1', verbose: false
   end 
 end
 
