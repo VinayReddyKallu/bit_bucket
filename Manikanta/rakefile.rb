@@ -18,6 +18,6 @@ task :powershell do
 end 
 
 task :cpp,[:vnum] do |task,args|
-  sh 'g++ Manikanta/greetingss.cpp -o greet'
+  sh 'g++ Manikanta/greetings.cpp -o greet'
   sh 'powershell.exe Compress-Archive greet.exe build_version_#{args.vnum}.zip'
 end
