@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+        stage('Git-Clone') {
+            git(
+                url: 'https://almgit.ncr.com/scm/appops/hydcloudengineering.git',
+                credentialsID: '68fea265-b72f-4c54-9783-194223659d75',
+                branch: "%branch%"
+            )
+        }
         stage('Build Stage') {
             steps {
                 echo "Calling rake task"
