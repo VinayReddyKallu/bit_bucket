@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build Stage') {
+            steps {
+                echo "Calling rake task"
+                bat 'rake --rakefile Manikanta/rakefile.rb'
+                echo "Finished with rake"
+            }
+        }
+        stage('success') {
+            steps {
+                echo "Successfully finished!!"
+            }
+        } 
+    }
+}
