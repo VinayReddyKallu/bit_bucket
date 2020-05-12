@@ -18,10 +18,16 @@ task :powershell do
 end 
 
 task :cpp,[:vnum] do |task,args|
-  sh 'g++ Manikanta/greetings.cpp -o greet'
-  sh "powershell.exe Compress-Archive greet.exe build_version_#{args.vnum}.zip"
-  Rake::Task['thanks'].invoke
-  Rake::Task['remove'].invoke
+  begin
+    sh 'g++ Manikanta/greetings.cpp -o greet'
+    sh "powershell.exe Compress-Archive greet.exe build_version_#{args.vnum}.zip"
+    Rake::Task['thanks'].invoke
+    Rake::Task['remove'].invoke
+  rescue => exception
+    raise "Already version exists"
+    sh 'powershell.exe Remove-Item greet.exe'
+    Rake::Task['cpp'].invoke
+  end
 end
 
 task :remove do
