@@ -40,5 +40,5 @@ task :version_update,[:vnum] do |task,args|
   sh 'g++ Manikanta/greetings.cpp -o greet'
   sh "powershell.exe Compress-Archive -Update greet.exe build_version_#{args.vnum}.zip"
   Rake::Task['thanks'].invoke
-  #Rake::Task['remove'].invoke
+  Rake::Task['remove'].invoke
 end
