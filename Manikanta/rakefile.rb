@@ -25,9 +25,9 @@ task :cpp,[:vnum] do |task,args|
     Rake::Task['thanks'].invoke
     Rake::Task['remove'].invoke
   rescue
-    sh 'powershell.exe Remove-Item greet.exe'
+    #sh 'powershell.exe Remove-Item greet.exe'
+    puts "VERSION ALREADY EXISTS, OVERWRITING IT"
     Rake::Task['version_update'].invoke(version)
-    #raise "Already version exists, over writing it"
   end
 end
 
