@@ -27,7 +27,7 @@ task :cpp,[:vnum] do |task,args|
   rescue
     sh 'powershell.exe Remove-Item greet.exe'
     Rake::Task['version_update'].invoke(version)
-    raise "Already version exists, over writing it"
+    #raise "Already version exists, over writing it"
   end
 end
 
@@ -39,6 +39,6 @@ task :version_update,[:vnum] do |task,args|
   puts "WORKING CHECK"
   sh 'g++ Manikanta/greetings.cpp -o greet'
   sh "powershell.exe Compress-Archive -Update greet.exe build_version_#{args.vnum}.zip"
-  Rake::Task['thanks'].invoke
-  Rake::Task['remove'].invoke
+  #Rake::Task['thanks'].invoke
+  #Rake::Task['remove'].invoke
 end
