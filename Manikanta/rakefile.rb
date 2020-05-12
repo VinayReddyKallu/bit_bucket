@@ -23,7 +23,7 @@ task :cpp,[:vnum] do |task,args|
     sh "powershell.exe Compress-Archive greet.exe build_version_#{args.vnum}.zip"
     Rake::Task['thanks'].invoke
     Rake::Task['remove'].invoke
-  rescue => exception
+  rescue
     sh 'powershell.exe Remove-Item greet.exe'
     Rake::Task['cpp'].invoke
     raise "Already version exists"
